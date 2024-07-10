@@ -80,7 +80,26 @@ def add_team():
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
     
-    
+
+@app.route("/teams/team/<id>")
+def add_player(id):
+    try:
+        data = request.json
+        name = data.get('name')
+        number = data.get('number')
+        position = data.get('position')
+        img = data.get('img')
+        team_id = data.get('team_id')
+        if not name or not number or not position or not img or not team_id:
+            return jsonify({'message': 'Bad request, name or number or position or img not found'}), 400
+        new_player = Player(name=name, number=number, position=position, img=img,team_id=team_id)
+        db.session.add(new_player)
+        db.session.commit()
+        return jsonify({'player': {'id': new_player.id, 'name': new_player.name, 'position': new_player.position, 'img': new_player.img, 'team_id': new_player.team_id }}), 201
+    except Exception as error:
+        print('Error', error)
+        return jsonify({'message': 'Internal server error'}), 500
+
 
 
 
