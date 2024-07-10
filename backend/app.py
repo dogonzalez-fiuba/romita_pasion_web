@@ -81,7 +81,7 @@ def add_team():
         return jsonify({'message': 'Internal server error'}), 500
     
 
-@app.route("/teams/team/<id>")
+@app.route("/teams/team/<id>", methods=['POST'])
 def add_player(id):
     try:
         data = request.json
@@ -99,8 +99,6 @@ def add_player(id):
     except Exception as error:
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
-
-
 
 
 
