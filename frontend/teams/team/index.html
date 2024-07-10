@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('home') }}">Agregar jugador</a>
+                            <a class="nav-link" id="agregar">Agregar jugador</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('get_all_teams') }}">Borrar jugador</a>
@@ -72,6 +72,8 @@
             }
             
             function parse_data(content){
+                const add = document.getElementById("agregar")
+                add.setAttribute("href", `http://localhost:8000/teams/team/add_player?id=${id}`)
                 console.log(content.players)
                 const nombre = document.getElementById("nombre_equipo")
                 nombre.innerText = content.name
