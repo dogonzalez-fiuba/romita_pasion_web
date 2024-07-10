@@ -51,9 +51,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-3" id="image">
-
-          </div>
+        <div class="col-3" id="imagen">
+            
+        </div>
 
         
     </div>
@@ -70,11 +70,13 @@
     }
 
     function parse_data(content){
-        console.log(id)
 
-        const container = document.getElementById("image")
+        const container = document.getElementById("imagen")
         const imagen = document.createElement("img")
         imagen.setAttribute("src", content.img)
+        imagen.setAttribute("width", "600px")
+        imagen.setAttribute("height", "600px")
+        container.append(imagen)
 
 
     }
