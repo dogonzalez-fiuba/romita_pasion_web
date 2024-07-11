@@ -12,7 +12,7 @@
 <header class="bg-dark text-white p-3 mb-4">
     <div class="container">
         <h1 class="display-4" align="center">Adding player<span id="nombre_equipo"></span></h1>
-
+        <a class="nav-link" id="return">Return</a>
     </div>
 </header>
 
@@ -114,6 +114,9 @@
     }
 
     function parse_data(content){
+        const comeback = document.getElementById("return")
+        comeback.setAttribute("href", `http://localhost:8000/teams/team?id=${content.id}`)
+
         const container = document.getElementById("imagen")
         const imagen = document.createElement("img")
         imagen.setAttribute("src", content.img)

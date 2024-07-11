@@ -33,7 +33,8 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" id="agregar">Agregar jugador</a>
+                                    <a class="nav-link" id="agregar">Add player</a>
+                                    <a class="nav-link" id="return">Return</a>
                                 </li>
                             </ul>
                         </div>
@@ -52,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Plantel</h1>
+                <h1>Squad</h1>
             </div>
         </div>
     </div>
@@ -98,7 +99,10 @@
         }
             
         function parse_data(content){
-            console.log(id) 
+            console.log(id)
+            const comeback = document.getElementById("return")
+            comeback.setAttribute("href", "http://localhost:8000/teams/")
+ 
             const add = document.getElementById("agregar")
             add.setAttribute("href", `http://localhost:8000/teams/team/add_player?id=${id}`)
             const nombre = document.getElementById("nombre_equipo")
