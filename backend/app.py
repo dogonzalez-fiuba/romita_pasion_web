@@ -141,6 +141,16 @@ def add_player(id):
         return jsonify({'message': 'Internal server error'}), 500
 
 
+@app.route("/players/<id_player>", methods=['DELETE'])
+def remove_player(id_player):
+    try:
+        player = Player.query.get(id_player)
+        db.session.delete(player)
+        db.session.commit()
+        return "player removed"
+    except: 
+        return jsonify({'message': 'Internal server error'}), 500
+
 
 if __name__ == '__main__':
     db.init_app(app)
