@@ -17,7 +17,7 @@
     <header class="bg-dark text-white p-3 mb-4">
         <div class="container">
             <h1 class="display-4" align="center"> Player </h1>
-    
+            <a class="nav-link" id="return">Return</a>
         </div>
     </header>
 
@@ -55,6 +55,10 @@
     <script>
 
         function remove_player(){
+            const confirmation = confirm("Are you sure to eliminate this player?")
+            if(!confirmation){
+                return;
+            } 
             let params = window.location.search
             let id = new URLSearchParams(params).get("id")
 
@@ -92,6 +96,9 @@
             console.log(content.players.team_id)
             const nombre = document.getElementById("name")
             nombre.innerText = content.players.name
+
+            const comeback = document.getElementById("return")
+            comeback.setAttribute("href", `http://localhost:8000/teams/team/?id=${content.players.team_id}`)
 
             const remove = document.getElementById("borrar_jugador")
             remove.setAttribute("href", `http://localhost:8000/teams/team?id=${content.players.team_id}`)
