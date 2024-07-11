@@ -60,7 +60,7 @@
     <div class="container">
         <div class="row g-4" id="players">
         </div>
-        <button type="button" class="btn btn-danger">Borrar equipo</button>
+        <a id="remove_t" type="button" href="/teams" class="btn btn-danger" onclick="remove_team()">Borrar equipo</a>
     </div>
     
 
@@ -71,6 +71,26 @@
 
 
     <script>
+        function remove_team(){
+            let params = window.location.search
+            let id = new URLSearchParams(params).get("id")
+
+            fetch("http://localhost:5000/teams/team/"+id,{
+                method: 'DELETE'
+            }).then(res => {
+                if(!res.ok){
+                    console.log('Problem')
+                    return;
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log('Success')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
 
         function response_received(response) {
             console.log(response)
@@ -78,7 +98,7 @@
         }
             
         function parse_data(content){
-            console.log(id)
+            console.log(id) 
             const add = document.getElementById("agregar")
             add.setAttribute("href", 'http://localhost:8000/teams/team/add_player?id=${id}')
             const nombre = document.getElementById("nombre_equipo")
