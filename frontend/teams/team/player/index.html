@@ -40,7 +40,7 @@
                 <div class="col-5">
                     <br>
                     <a id="borrar_jugador" onclick="remove_player()" class="btn btn-danger">Remove player</a>
-                    <a class="btn btn-primary">Edit player</a>
+                    <a class="btn btn-primary" id="edit_player">Edit player</a>
                 </div>
                 <div class="col"></div>
             
@@ -53,6 +53,7 @@
 
 
     <script>
+        
 
         function remove_player(){
             const confirmation = confirm("Are you sure to eliminate this player?")
@@ -118,6 +119,9 @@
 
         let params = window.location.search
         let id = new URLSearchParams(params).get("id")
+
+        const edit_button = document.getElementById("edit_player")
+        edit_button.setAttribute("href", `http://localhost:8000/teams/team/player/edit_player?id=${id}`)
         
         fetch("http://localhost:5000/players/"+id)
             .then(response_received)
