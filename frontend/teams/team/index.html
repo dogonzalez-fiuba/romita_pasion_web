@@ -9,35 +9,42 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         img {
-            background-color: rgb(48, 48, 48);
-            aspect-ratio: 3/4;
+            background-color: rgb(34, 34, 34);
+        }
+        #esc{
+            background-color: transparent;
+        }
+        #cup{
+            background-color: transparent;         
         }
     </style>
 </head>
 
 <header class="bg-dark text-white p-3 mb-4">
     <div class="container">
-        <h1 class="display-4"><span id="nombre_equipo"></span></h1>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" id="agregar">Agregar jugador</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('get_all_teams') }}">Borrar jugador</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('add_team') }}">Editar jugador</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="display-4"><span id="nombre_equipo"></span></h1>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="agregar">Agregar jugador</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
+            <div class="col-6"><img id="esc"></div>
+            <div class="col">
+                <img id="cup" src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F83.png" width="150px" height="150px">
+            </div>
+        </div>
     </div>
 </header>
 
@@ -65,54 +72,60 @@
 
     <script>
 
-            function response_received(response) {
-                console.log(response)
-                return response.json()
-            }
+        function response_received(response) {
+            console.log(response)
+            return response.json()
+        }
             
-            function parse_data(content){
-                console.log(id)
-                const add = document.getElementById("agregar")
-                add.setAttribute("href", `http://localhost:8000/teams/team/add_player?id=${id}`)
-                const nombre = document.getElementById("nombre_equipo")
-                nombre.innerText = content.name
+        function parse_data(content){
+            console.log(id)
+            const add = document.getElementById("agregar")
+            add.setAttribute("href", 'http://localhost:8000/teams/team/add_player?id=${id}')
+            const nombre = document.getElementById("nombre_equipo")
+            nombre.innerText = content.name
 
-                const container = document.getElementById("players")
-                for (let index = 0; index < (content.players).length; index++){
-                    const div = document.createElement("div")
-                    div.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2")
-
-                    const item = document.createElement("p")
-                    item.innerText = `${content.players[index].name}`
-                    item.setAttribute("align", "center")
-
-                    const posicion = document.createElement("p")
-                    posicion.innerText = `${content.players[index].position}`
-                    posicion.setAttribute("align", "center")
-
-                    const card = document.createElement("a")
-                    card.setAttribute("class", "card text-decoration-none")
-                    card.setAttribute("href", `http://localhost:8000/teams/team/player?id=${content.players[index].id}`)
+            const escudo = document.getElementById("esc")
+            escudo.setAttribute("src", content.img)
+            escudo.setAttribute("width", "150px")
+            escudo.setAttribute("height", "150px")
 
 
-                    const card_body = document.createElement("div")
+            const container = document.getElementById("players")
+            for (let index = 0; index < (content.players).length; index++){
+                const div = document.createElement("div")
+                div.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2")
 
-                    card_body.setAttribute("padding", "1em")
-                    card_body.setAttribute("border-color", "red")               
+                const item = document.createElement("p")
+                item.innerText = ${content.players[index].name}
+                item.setAttribute("align", "center")
 
-                    const imagen = document.createElement("img")
-                    imagen.setAttribute("class", "card-img-top")
-                    imagen.setAttribute("src", content.players[index].img)
+                const posicion = document.createElement("p")
+                posicion.innerText = ${content.players[index].position}
+                posicion.setAttribute("align", "center")
+
+                const card = document.createElement("a")
+                card.setAttribute("class", "card text-decoration-none")
+                card.setAttribute("href", 'http://localhost:8000/teams/team/player?id=${content.players[index].id}')
 
 
-                    card_body.append(imagen)
-                    card_body.append(item)
-                    card_body.append(posicion)
-                    card.append(card_body)
+                const card_body = document.createElement("div")
 
-                    div.append(card)
-                    container.append(div)
-                }
+                card_body.setAttribute("padding", "1em")
+                card_body.setAttribute("border-color", "red")               
+
+                const imagen = document.createElement("img")
+                imagen.setAttribute("class", "card-img-top")
+                imagen.setAttribute("src", content.players[index].img)
+
+
+                card_body.append(imagen)
+                card_body.append(item)
+                card_body.append(posicion)
+                card.append(card_body)
+
+                div.append(card)
+                container.append(div)
+            }
 
 
 
