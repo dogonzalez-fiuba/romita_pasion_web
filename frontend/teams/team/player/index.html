@@ -39,8 +39,8 @@
 
                 <div class="col-5">
                     <br>
-                    <a href="/teams/add" class="btn btn-danger">Remove player</a>
-                    <a href="/teams/add" class="btn btn-primary">Edit player</a>
+                    <a id="borrar_jugador" onclick="remove_player()" class="btn btn-danger">Remove player</a>
+                    <a class="btn btn-primary">Edit player</a>
                 </div>
                 <div class="col"></div>
             
@@ -54,6 +54,34 @@
 
     <script>
 
+        function remove_player(){
+            let params = window.location.search
+            let id = new URLSearchParams(params).get("id")
+
+            fetch("http://localhost:5000/players/"+id,{
+                method: 'DELETE'
+            }).then(res => {
+                if(!res.ok){
+                    console.log('Problem')
+                    return;
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log('Success')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+
+        }
+
+
+
+
+
+
         function response_received(response) {
 
         console.log(response)
@@ -61,10 +89,12 @@
         }
 
         function parse_data(content){
-            console.log(content.players.name)
-
+            console.log(content.players.team_id)
             const nombre = document.getElementById("name")
             nombre.innerText = content.players.name
+
+            const remove = document.getElementById("borrar_jugador")
+            remove.setAttribute("href", `http://localhost:8000/teams/team?id=${content.players.team_id}`)
 
             const posicion = document.getElementById("position")
             posicion.innerText = content.players.position + " " + `(${content.players.number})`
