@@ -63,6 +63,46 @@ def get_team(id):
     except: 
         return jsonify({'message': 'Internal server error'}), 500
 
+@app.route("/players")
+def get_players():
+    try:
+        players = Player.query.all()
+        players_data = []
+        for player in players:
+            player_data = {
+                'id': player.id,
+                'name': player.name,
+                'number': player.number,
+                'position': player.position,
+                'img':player.img,
+                'team_id': player.team_id                
+            }
+            players_data.append(player_data)
+        return jsonify({"players": players_data})
+    except: 
+        return jsonify({'message': 'Internal server error'}), 500
+    
+
+@app.route("/players/<id_player>")
+def get_player(id_player):
+    try:
+        player = Player.query.get(id_player)
+
+        player_data = {
+            'id': player.id,
+            'name': player.name,
+            'number': player.number,
+            'position': player.position,
+            'img':player.img,
+            'team_id': player.team_id                
+        }
+        return jsonify({"players": player_data})
+    except: 
+        return jsonify({'message': 'Internal server error'}), 500
+
+
+
+
 @app.route('/teams', methods=['POST'])
 def add_team():
     try:
