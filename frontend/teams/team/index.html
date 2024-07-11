@@ -66,15 +66,14 @@
     <script>
 
             function response_received(response) {
-
                 console.log(response)
                 return response.json()
             }
             
             function parse_data(content){
+                console.log(id)
                 const add = document.getElementById("agregar")
                 add.setAttribute("href", `http://localhost:8000/teams/team/add_player?id=${id}`)
-                console.log(content.players)
                 const nombre = document.getElementById("nombre_equipo")
                 nombre.innerText = content.name
 
@@ -93,6 +92,7 @@
 
                     const card = document.createElement("a")
                     card.setAttribute("class", "card text-decoration-none")
+                    card.setAttribute("href", `http://localhost:8000/teams/team/player?id=${content.players[index].id}`)
 
 
                     const card_body = document.createElement("div")
@@ -130,7 +130,7 @@
             fetch("http://localhost:5000/teams/team/"+id)
             .then(response_received)
             .then(parse_data)
-            .catch(handle_error)
+            .catch(request_error)
     </script>
 </body>
 
