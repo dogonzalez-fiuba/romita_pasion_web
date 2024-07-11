@@ -40,7 +40,7 @@
                                         <input type="text" class="form-control" id="image" name="image"
                                             placeholder="https://. . . .">
                                     </div>
-                                    <input type="submit",  onclick="window.location.href = 'http://localhost:8000/teams/';", class="btn btn-success" value="ADD TEAM">
+                                    <input type="submit",  onclick="window.location.href = '/teams';", class="btn btn-success" value="ADD TEAM">
                                 </form>
                               </div>
                               <div class="col"><img height="500px" width="400px" src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F83.png"></div>
@@ -67,7 +67,6 @@
 
     function add_team(event){
         event.preventDefault()
-
         const formData = new FormData(event.target)
         const name = formData.get("name")
         const imagen = formData.get("image")       

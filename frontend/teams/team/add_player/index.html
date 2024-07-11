@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 >Add player</h2>
-                    <form onsubmit="add_player(event)" action=`/teams/team?id=${id}`>
+                    <form onsubmit="add_player(event)">
                         <div class="mb-3"></div>
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -70,7 +70,7 @@
 
     function handle_response(data) {
         if (data.success) {
-                window.location.href = `http://localhost:8000/teams/`
+                window.location.href = `http://localhost:8000/teams/team?id=${id}`
         } 
         else {
                 console.log("Error")
@@ -114,7 +114,6 @@
     }
 
     function parse_data(content){
-
         const container = document.getElementById("imagen")
         const imagen = document.createElement("img")
         imagen.setAttribute("src", content.img)
