@@ -152,6 +152,16 @@ def remove_player(id_player):
         return jsonify({'message': 'Internal server error'}), 500
 
 
+@app.route("/teams/team/<id>", methods=['DELETE'])
+def remove_team(id):
+    try:
+        team = Team.query.get(id)
+        db.session.delete(team)
+        db.session.commit()
+        return jsonify({'message': 'Team removed'})
+    except: 
+        return jsonify({'message': 'Internal server error'}), 500
+
 if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():
