@@ -12,6 +12,7 @@
 <header class="bg-dark text-white p-3 mb-4">
     <div class="container">
         <h1 class="display-4" align="center">Adding team<span id="nombre_equipo"></span></h1>
+        <a class="nav-link" id="return" href="/teams" ><img id="fotito" src="https://cdn0.iconfinder.com/data/icons/thin-line-color-2/21/05_1-512.png" width="40px" height="40px"> Return</a>
 
     </div>
 </header>
@@ -54,15 +55,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-<correct_hash>" crossorigin="anonymous"></script>
 <script>
-    
-    function handle_response(data) {
-        if (data.success) {
-                window.location.href = `http://localhost:8000/teams/`
-        } 
-        else {
-                console.log("Error")
-        }
-    }
 
 
     function add_team(event){
@@ -89,6 +81,7 @@
                 .catch((error) => console.log("ERROR", error))
 
     }
+
 </script>
 
 <footer class="bg-dark text-white text-center p-3 mt-4">
