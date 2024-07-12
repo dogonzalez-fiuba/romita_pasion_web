@@ -28,8 +28,8 @@
                         <div class="mb-3"></div>
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
-    
-                        
+
+
                         <div class="mb-3">
                             <label for="number" class="form-label">Number</label>
                             <input type="text" class="form-control" id="number" name="number" placeholder="1-26">
@@ -53,10 +53,10 @@
             </div>
         </div>
         <div class="col-3" id="imagen">
-            
+
         </div>
 
-        
+
     </div>
 </body>
 
@@ -103,7 +103,7 @@
         console.log(team_id)
 
 
-        fetch("http://localhost:5000/teams/team/"+id, {
+        fetch("http://localhost:5000/players/"+id, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

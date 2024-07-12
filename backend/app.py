@@ -162,7 +162,7 @@ def remove_team(id):
     except: 
         return jsonify({'message': 'Internal server error'}), 500
     
-@app.route("/teams/team/player/<id>", methods=['PUT'])
+@app.route("/players/<id>", methods=['PUT'])
 def edit_player(id):
     try:
         player = Player.query.get(id)
