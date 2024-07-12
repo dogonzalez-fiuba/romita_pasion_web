@@ -189,7 +189,28 @@ def edit_player(id):
     except Exception as error:
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
+    
 
+
+@app.route("/teams/team/<id>", methods=['PUT'])
+def edit_team(id):
+    try:
+        team = Team.query.get(id)
+        if not team:
+            return jsonify({'message': 'Team not fund'}), 404
+
+        data = request.json
+        name = data.get("name")
+        img = data.get("img")
+        if not name or not img:
+            return jsonify({'message': 'Bad request, name or img not found'}), 400   
+        team.name = name
+        team.img = img
+        db.session.commit()   
+        return jsonify({'player': {'id': team.id, 'name': team.name, 'position': team.position, 'img': team.img, 'team_id': team.team_id }}), 200  
+    except Exception as error:
+        print('Error', error)
+        return jsonify({'message': 'Internal server error'}), 500
 
 if __name__ == '__main__':
     db.init_app(app)
