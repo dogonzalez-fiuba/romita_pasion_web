@@ -61,7 +61,8 @@
     <div class="container">
         <div class="row g-4" id="players">
         </div>
-        <a id="remove_t" type="button" href="/teams" class="btn btn-danger" onclick="remove_team()">Borrar equipo</a>
+        <a id="remove_t" type="button" href="/teams" class="btn btn-danger" onclick="remove_team()">Remove team</a>
+        <a></a>
     </div>
     
 
@@ -75,7 +76,10 @@
         function remove_team(){
             let params = window.location.search
             let id = new URLSearchParams(params).get("id")
-
+            const confirmation = confirm("Are you sure to eliminate this team?")
+            if(!confirmation){
+                return;
+            } 
             fetch("http://localhost:5000/teams/team/"+id,{
                 method: 'DELETE'
             }).then(res => {
