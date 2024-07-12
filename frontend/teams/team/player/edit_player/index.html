@@ -72,10 +72,12 @@
     }
 
     function handle_get_response(data){
-        document.getElementById("name").value = data.name
-        document.getElementById("number").value = data.number
-        document.getElementById("position").value = data.position 
-        document.getElementById("img").value = data.img
+        document.getElementById("name").value = data.players.name
+        document.getElementById("number").value = data.players.number
+        document.getElementById("position").value = data.players.position 
+        document.getElementById("img").value = data.players.img
+        const comeback = document.getElementById("return")
+        comeback.setAttribute("href", `/teams/team/player?id=${id}`)
     }
 
     fetch(`http://localhost:5000/players/${id}`)
