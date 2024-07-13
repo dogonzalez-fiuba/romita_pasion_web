@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Copa America</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            img {
+                background-color: rgb(34, 34, 34);
+                aspect-ratio: 3/4;
+                border-radius: 1em;
+            }
+        </style>
+    </head>
+    <header class="bg-dark text-white p-3 mb-4">
+        <div class="container">
+            <h1 class="display-4" align="center"> Player </h1>
+            <a class="nav-link" id="return"><img id="fotito" src="https://cdn0.iconfinder.com/data/icons/thin-line-color-2/21/05_1-512.png" width="40px" height="40px"> Return</a>
+        </div>
+    </header>
+
+<body>
+    <div class="container text-center">
+        <div class="card">
+            <div class="row">
+                <div class="col-3"></div>
+
+                <div class="col-6">
+                    <h1 id="name"></h1>
+                    <h3 id="position"></h3>
+                    <img id="img">
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+
+                <div class="col-5">
+                    <br>
+                    <a id="borrar_jugador" onclick="remove_player()" class="btn btn-danger">Remove player</a>
+                    <a class="btn btn-primary" id="edit_player">Edit player</a>
+                </div>
+                <div class="col"></div>
+            
+            </div>
+
+        </div>
+        <br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-<correct_hash>" crossorigin="anonymous"></script>
+
+
+    <script>
+        
+
+        function remove_player(){
+            const confirmation = confirm("Are you sure to eliminate this player?")
+            if(!confirmation){
+                return;
+            } 
+            let params = window.location.search
+            let id = new URLSearchParams(params).get("id")
+
+            fetch("http://localhost:5000/players/"+id,{
+                method: 'DELETE'
+            }).then(res => {
+                if(!res.ok){
+                    console.log('Problem')
+                    return;
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log('Success')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+
+        }
+
+
+
+
+
+
+        function response_received(response) {
+
+        console.log(response)
+        return response.json()
+        }
+
+        function parse_data(content){
+            console.log(content.players.team_id)
+            const nombre = document.getElementById("name")
+            nombre.innerText = content.players.name
+
+            const comeback = document.getElementById("return")
+            comeback.setAttribute("href", `http://localhost:8000/teams/team/?id=${content.players.team_id}`)
+
+            const remove = document.getElementById("borrar_jugador")
+            remove.setAttribute("href", `http://localhost:8000/teams/team?id=${content.players.team_id}`)
+
+            const posicion = document.getElementById("position")
+            posicion.innerText = content.players.position + " " + `(${content.players.number})`
+
+            const imagen = document.getElementById("img")
+            imagen.setAttribute("src", content.players.img)
+
+        }
+
+        function request_error(error) {
+            console.log("ERROR")
+            console.log(error);
+        }
+
+        let params = window.location.search
+        let id = new URLSearchParams(params).get("id")
+
+        const edit_button = document.getElementById("edit_player")
+        edit_button.setAttribute("href", `http://localhost:8000/teams/team/player/edit_player?id=${id}`)
+        
+        fetch("http://localhost:5000/players/"+id)
+            .then(response_received)
+            .then(parse_data)
+            .catch(request_error)
+    </script>
+</body> 
+
+
+<footer class="bg-dark text-white text-center p-3 mt-4">
+    <p>&copy; 2024 Copa America</p>
+</footer>
+</html>
+
+
