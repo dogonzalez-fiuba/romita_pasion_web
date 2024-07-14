@@ -2,43 +2,50 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name ="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Copa America Web</title>
 </head>
 <body>
     <section class="home">
         <header class="navbar">
             <div class="box">
-            <img class="fondo" src="img/Rectangle 9.png" />
+                <img class="fondo" src="{{ url_for('static', filename='img/Rectangle 9.png') }}" />
             </div>
             <div class="menu"><div class="rectangle"></div></div>
             <div class="image">
-            <img class="logo" src="img/logocopa.png" />
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
             </div>
-            <div class="text-wrapper-14"><a href="">CONTACT</a></div>
-            <div class="text-wrapper-15"><a href="/teams" >TEAMS</a></div>
-            <div class="text-wrapper-16"><a href="http://localhost:8000/" >HOME</a></div>
-            <div class="text-wrapper-17"><a href="">ABOUT</a></div></div>
-            <img class="menu-close" src="img/variant3.png" />
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+            <img class="menu-close" src="{{ url_for('static', filename='img/variant3.png') }}" />
         </header>
         <div class="wrapper">
             <div class="logocentro">
                 <div class="label">
-                <div class="COPA-AMERICA">COPA AMERICA<br />2024</div>
+                    <div class="COPA-AMERICA">COPA AMERICA<br />2024</div>
                 </div>
                 <div class="image">
-                    <img class="trofeo" src="img/trofeo2.png"/>
+                    <img class="trofeo" src="{{ url_for('static', filename='img/trofeo2.png') }}"/>
                 </div>
             </div>
             <div class="boton-see-more">
-                <div class="text-wrapper"><a href="/teams">See More</a></div></div>
+                <div class="text-wrapper"><a href="{{ url_for('teams') }}">See More</a></div>
             </div>
         </div>
         <div class="footer">
-                <div class="Rectangle8" ></div>
-                    <div class="Copyright2024" >Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América
-                    </div>
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
         </div>
     </section>
 </body>

@@ -1,13 +1,40 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, Team, Player
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', template_folder='../frontend')
 CORS(app)
 port = 5000
 app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:123456@localhost:5432/flask_api_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
+# Ruta para servir la página de inicio
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/teams')
+def teams():
+    all_teams = Team.query.all()
+    return render_template('teams/teams.html', teams=all_teams)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact/contact.html')
+
+@app.route('/about')
+def about():
+    return render_template('about/about.html')
+
+@app.route('/players/<int:team_id>')
+def players(team_id):
+    team = Team.query.get_or_404(team_id)
+    players = team.players
+    return render_template('players/players.html', team=team, players=players)
+
+@app.route('/add_team_page')
+def add_team_page():
+    return render_template('teams/add_team/addteam.html')
 
 @app.route('/teams', methods=['GET'])
 def get_all_teams():
