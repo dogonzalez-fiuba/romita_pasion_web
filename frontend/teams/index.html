@@ -1,38 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/teams.css">
+    <title>Copa America Web</title>
 </head>
-
-<header class="bg-dark text-white p-3 mb-4">
-    <div class="container">
-        <h1 class="display-4">Copa America</h1>  
-        <a class="nav-link" id="return" href="/"><img id="fotito" src="https://cdn0.iconfinder.com/data/icons/thin-line-color-2/21/05_1-512.png" width="40px" height="40px"> Return</a>
-    </div>
-</header>
-
-
-
-<body >
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Teams</h1>
-                <a href="/teams/add" class="btn btn-success">Add team</a>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/teams_page/fondoteams.png?raw=true" />
             </div>
-        </div>
-    </div>
+            <div class="menu">
+                <div class="rectangle"></div>
+            </div>
+            <div class="image">
+                <img class="logo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/logocopa.png?raw=true" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="http://localhost:8000/contact">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="http://localhost:8000/teams">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="http://localhost:8000">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="http://localhost:8000/about/">ABOUT</a>
+            </div>
+            <img class="menu-close" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/Variant3.png?raw=true" />
+        </header>
 
-    <div class="container">
-        <div class="row g-4" id="teams">
+        <div class="Teams">Teams</div>
+
+        <div class="tarjeta" id="teams">
+            <a href="/teams/team/add" class="Rectangle12 boton">
+                <img class="botonclick" src="https://raw.githubusercontent.com/dogonzalez-fiuba/romita_pasion_web/e27ff77b4905cd87ea2133415af0d87177d2d246/frontend/teams_page/botonteams.svg">
+            </a>
         </div>
-    </div>
+        
+        
+        
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div>
+    </section>
+</body>
+</html>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-<correct_hash>" crossorigin="anonymous"></script>
     <script>
@@ -52,10 +70,13 @@
 
                 const div = document.createElement("div")
                 div.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2")
+                div.setAttribute("class", "Rectangle12")
+
 
                 const item = document.createElement("p")
                 item.innerText = `${content.teams[index].name}`
                 item.setAttribute("align", "center")
+                item.setAttribute("class", "contenido")
 
                 const card_body = document.createElement("div")
                 card_body.setAttribute("class", "card-body")
@@ -66,8 +87,9 @@
     
 
                 const imagen = document.createElement("img")
-                imagen.setAttribute("class", "card-img-top")
+                imagen.setAttribute("class", "escudo")
                 imagen.setAttribute("src", content.teams[index].img)
+                
 
                 card_body.append(item)
                 card.append(card_body)
