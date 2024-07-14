@@ -9,14 +9,14 @@ app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:123456@lo
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 # Ruta para servir la página de inicio
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('index.html')
 
-@app.route('/teams')
-def teams():
+@app.route('/teams_page')
+def teams_page():
     all_teams = Team.query.all()
-    return render_template('teams/teams.html', teams=all_teams)
+    return render_template('teams_page/teams.html', teams=all_teams)
 
 @app.route('/contact')
 def contact():
@@ -26,15 +26,15 @@ def contact():
 def about():
     return render_template('about/about.html')
 
-@app.route('/players/<int:team_id>')
-def players(team_id):
+@app.route('/players_page/<int:team_id>')
+def players_page(team_id):
     team = Team.query.get_or_404(team_id)
     players = team.players
-    return render_template('players/players.html', team=team, players=players)
+    return render_template('players_page/players.html', team=team, players=players)
 
 @app.route('/add_team_page')
 def add_team_page():
-    return render_template('teams/add_team/addteam.html')
+    return render_template('teams_page/add_team/addteam.html')
 
 @app.route('/teams', methods=['GET'])
 def get_all_teams():

@@ -2,19 +2,17 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="{{ url_for('static', filename='teams/teams.css') }}">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='players_page/players.css') }}">
     <title>Copa America Web</title>
 </head>
 <body>
     <section class="home">
         <header class="navbar">
             <div class="box">
-                <img class="fondo" src="{{ url_for('static', filename='teams/fondoteams.png') }}" />
+                <img class="fondo" src="{{ url_for('static', filename='players_page/fondoplayers.png') }}" />
             </div>
-            <div class="menu">
-                <div class="rectangle"></div>
-            </div>
+            <div class="menu"><div class="rectangle"></div></div>
             <div class="image">
                 <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
             </div>
@@ -22,7 +20,7 @@
                 <a href="{{ url_for('contact') }}">CONTACT</a>
             </div>
             <div class="text-wrapper-15">
-                <a href="{{ url_for('teams') }}">TEAMS</a>
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
             </div>
             <div class="text-wrapper-16">
                 <a href="{{ url_for('home') }}">HOME</a>
@@ -33,29 +31,30 @@
             <img class="menu-close" src="{{ url_for('static', filename='img/Variant3.png') }}" />
         </header>
 
-        <div class="Teams">Teams</div>
+        <div class="nombrequipo">
+            <div class="equipo">{{ team.name }}</div>
+        </div>
 
         <div class="tarjeta">
-            {% for team in teams %}
-            <a href="{{ url_for('players', team_id=team.id) }}" class="Rectangle12">
-                <img class="escudo" src="{{ team.img }}">
-                <div class="contenido">
-                    <h3>{{ team.name }}</h3>
+            {% for player in players %}
+            <div class="Rectangle12">
+                <img class="fondojug" src="{{ url_for('static', filename='players_page/fondojugador.png') }}"/>
+                <div class="nombrejug">{{ player.name }}
+                    <div class="position">{{ player.position }}
+                        <img class="fotojugador" src="{{ player.img }}"/>
+                    </div>"
                 </div>
-            </a>
+            </div>
             {% endfor %}
-            <a href="{{ url_for('add_team_page') }}" class="Rectangle12 boton">
-                <img class="botonclick" src="{{ url_for('static', filename='teams/botonteams.svg') }}">
-            </a>
+            <div class="Rectangle12 boton">
+                <img class="botonclick" src="{{ url_for('static', filename='players_page/addplayers.png') }}">
+            </div>
         </div>
-        
-        
-        
 
         <div class="footer">
             <div class="Rectangle8"></div>
             <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
-        </div>
+        </div> 
     </section>
 </body>
 </html>
