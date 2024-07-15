@@ -123,7 +123,7 @@ Visit http://127.0.0.1:5000 in your browser to see the application running.
 
 ### Usage
 ```bash
-Home Page: http://127.0.0.1:5000/
+Home Page: http://127.0.0.1:5000/home
 View Teams: http://127.0.0.1:5000/teams
 Add Team: http://127.0.0.1:5000/teams/add
 Edit Team: http://127.0.0.1:5000/teams/<id>/edit
