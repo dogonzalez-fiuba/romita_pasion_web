@@ -2,7 +2,7 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: "Baloo 2", sans-serif;
+    font-family: "Baloo 2", sans-serif; 
 }
 
 .box {
@@ -105,13 +105,6 @@ body, html {
     line-height: normal;
   }
 
-.menu-close {
-    position: fixed;
-    width: 39px;
-    height: 31px;
-    top: 28px;
-    right: 50px;
-  }
   
 
 .wrapper{
@@ -152,54 +145,118 @@ body, html {
     font-weight: 500; 
 } 
 
-.Rectangle26 {
-    width: 1098.41px; 
-    height: 1763.40px; 
-    left: -519.31px; 
-    top: 487.66px; 
-    position: fixed; 
-    transform: rotate(-47.79deg); 
-    transform-origin: 0 0; 
-    background: rgba(29, 53, 87, 0.89);
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    bottom: 70px;
 }
 
-.WeAreRomitaPasion {
-    width: 750px; 
-    height: 150px; 
-    left: 0px; 
-    top: 266px; 
-    position: fixed; 
+.Rectangle21 {
+    width: 1000px; 
+    height: 700px; 
+    background: #F1FAEE; 
+    border-radius: 10px;
+    position: relative;
+
+}
+
+.Rectangle24 {
+    width: 143px; 
+    height: 54px; 
+    left: 803px; 
+    top: 600px; 
+    position: relative; 
+    background: #397DED; 
+    border-radius: 10px;
+    cursor: default;
+    transition: all 400ms ease-in-out;
+
+}
+
+.Rectangle24:hover {
+ transform: scale(1.1);    
+}
+
+.AddTeam {
+    width: 417px; 
+    height: 109px; 
+    left: 9px; 
+    top: 33px; 
+    position: absolute; 
     text-align: center; 
-    color: white; 
+    color: #001B48; 
     font-size: 70px; 
     font-family: Baloo; 
     font-weight: 400; 
-    word-wrap: break-word
+    word-wrap: break-word;
+
 }
 
-.descripcion {
-    width: 815px; 
-    height: 486px; 
-    left: 58px; 
-    top: 434px; 
-    position: fixed; 
-    color: white; 
-    font-size: 25px; 
+.Rectangle22 {
+    width: 858px; 
+    height: 60px; 
+    left: 71px; 
+    top: 231px; 
+    position: absolute; 
+    background: #E7E7E7; 
+    border-radius: 10px;
+
+}
+
+.Name{
+    width: 175px; 
+    height: 55px; 
+    left: 43px; 
+    top: 159px; 
+    position: absolute; 
+    text-align: center; 
+    color: black; 
+    font-size: 40px; 
     font-family: Baloo; 
     font-weight: 400; 
-    word-wrap: break-word
+    word-wrap: break-word;
+
 }
 
-.Hello {
-    width: 367px; 
-    height: 150px; 
-    left: 0px; 
-    top: 165px; 
-    position: fixed; 
+.Add{
+    width: 175px; 
+    height: 55px; 
+    left: 787px; 
+    top: 606px; 
+    position: absolute; 
     text-align: center; 
     color: white; 
-    font-size: 96px; 
+    font-size: 30px; 
     font-family: Baloo; 
     font-weight: 400; 
-    word-wrap: break-word"
-} 
+    word-wrap: break-word;   
+}
+
+
+
+.Rectangle23 {
+    width: 858px; 
+    height: 60px; 
+    left: 71px; 
+    top: 399px; 
+    position: absolute; 
+    background: #E7E7E7; 
+    border-radius: 10px;
+
+}
+
+.ClubLogo {
+    width: 249px; 
+    height: 55px; 
+    left: 43px; 
+    top: 327px; 
+    position: absolute; 
+    text-align: center; 
+    color: black; 
+    font-size: 40px; 
+    font-family: Baloo; 
+    font-weight: 400; 
+    word-wrap: break-word;
+}

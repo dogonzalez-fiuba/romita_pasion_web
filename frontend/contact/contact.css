@@ -52,7 +52,7 @@ body, html {
 .text-wrapper-14 {
     width: 118px;
     top: 30px;
-    right: 150px;
+    right: 65px;
     color: #001b48;
     position: fixed;
     font-family: "Baloo-Regular", Helvetica;
@@ -66,7 +66,7 @@ body, html {
 .text-wrapper-15 {
     width: 118px;
     top: 30px;
-    right: 430px;
+    right: 345px;
     color: #001b48;
     font-size: 24px;
     position: fixed;
@@ -80,7 +80,7 @@ body, html {
 .text-wrapper-16 {
     width: 118px;
     top: 30px;
-    right: 570px;
+    right: 485px;
     color: #001b48;
     position: fixed;
     font-family: "Baloo-Regular", Helvetica;
@@ -95,7 +95,7 @@ body, html {
     position: fixed;
     width: 118px;
     top: 30px;
-    right: 290px;
+    right: 205px;
     font-family: "Baloo-Regular", Helvetica;
     font-weight: 400;
     color: #001b48;

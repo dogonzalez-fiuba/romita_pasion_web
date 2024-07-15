@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='teams_page/addteam/addteam.css') }}">
+    <title>Copa America Web</title>
+</head>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondo" src="{{ url_for('static', filename='teams_page/fondoteams.png') }}" />
+            </div>
+            <div class="menu">
+                <div class="rectangle"></div>
+            </div>
+            <div class="image">
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+            
+        </header>
+
+        <div class="main-content">
+            <div class="Rectangle21">
+                <div class="Rectangle24"></div>
+                <div class="AddTeam">Add Team</div>
+                <form action="{{ url_for('add_team') }}" method="post" enctype="multipart/form-data">
+                    <div class="Rectangle22">
+                        <input type="text" name="name" placeholder="Enter team name" required>
+                    </div>
+                    <div class="Name">Name</div>
+                    <div class="Rectangle23">
+                        <input type="file" name="logo" accept="image/*" required>
+                    </div>
+                    <div class="ClubLogo">Club Logo</div>
+                    <div class="Add">
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+            
+
+         <div class="footer">
+                <div class="Rectangle8" ></div>
+                    <div class="Copyright2024" >Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div> 
+    </section>
+</body>
+</html>

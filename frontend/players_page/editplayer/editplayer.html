@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='players_page/editplayer/editplayer.css') }}">
+    <title>Copa America Web</title>
+</head>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondoabout" src="{{ url_for('static', filename='players_page/editplayer/fondoaddedit.png') }}" />
+            </div>
+            <div class="Rectangle26"></div>
+            <div class="menu">
+                <div class="rectangle"></div>
+            </div>
+            <div class="image">
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="Rectangle21">
+                <div class="Rectangleadd">
+                    <button class="Add" id="editButton">Edit</button>
+                </div>
+                <div class="Rectangledelete">
+                    <button class="delete" id="deleteButton">Delete Player</button>
+                </div>
+                <div class="AddTeam">Edit Player</div>
+                <div class="Rectangle22"></div>
+                <div class="Name">Name: <input type="text" id="playerName" value="{{ player.name }}"></div>
+                <div class="Rectangle23"></div>
+                <div class="ClubLogo">Number: <input type="text" id="playerNumber" value="{{ player.number }}"></div>
+                <div class="Rectangle25"></div>
+                <div class="Photo">Photo: <input type="text" id="playerPhoto" value="{{ player.img }}"></div>
+                <div class="Rectangle28"></div>
+                <div class="Position">Position: <input type="text" id="playerPosition" value="{{ player.position }}"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const playerId = "{{ player.id }}";
+            const teamId = "{{ player.team_id }}";
+
+            document.getElementById('editButton').addEventListener('click', function() {
+                editPlayer(playerId, teamId);
+            });
+
+            document.getElementById('deleteButton').addEventListener('click', function() {
+                deletePlayer(playerId, teamId);
+            });
+        });
+
+        function editPlayer(playerId, teamId) {
+            const playerName = document.getElementById('playerName').value;
+            const playerNumber = document.getElementById('playerNumber').value;
+            const playerPhoto = document.getElementById('playerPhoto').value;
+            const playerPosition = document.getElementById('playerPosition').value;
+
+            fetch(`/players/${playerId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: playerName,
+                    number: playerNumber,
+                    position: playerPosition,
+                    img: playerPhoto,
+                    team_id: teamId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Internal server error') {
+                    alert('Error updating player');
+                } else {
+                    alert('Player updated successfully');
+                    window.location.href = `/players_page/${teamId}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function deletePlayer(playerId, teamId) {
+            fetch(`/players/${playerId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Internal server error') {
+                    alert('Error deleting player');
+                } else {
+                    alert('Player deleted successfully');
+                    window.location.href = `/players_page/${teamId}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
