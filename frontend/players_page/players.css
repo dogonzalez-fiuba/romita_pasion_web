@@ -197,10 +197,13 @@ body, html {
 }
 
 .botonesabajo {
+  display: flex;
+  align-items: center;
+  align-content: center;
   margin-top: 100px;
-  position: absolute;
-  left: 25%;
+  gap: 80px;
   padding-bottom: 150px;
+  justify-content: center;
   
 
 }
@@ -220,21 +223,17 @@ body, html {
 
 }
 
-.BotonBorrar1 {
-  padding-left: 200px;
-}
 
 .DeleteTeam {
   display: inline-block;
-  width: 233px; 
-  height: 37px; 
+  bottom: 30px;
   left: 18px; 
-  bottom: 50px;
+  height: 37px;
   color: white; 
   font-size: 34px; 
   font-family: Baloo; 
   font-weight: 400; 
   word-wrap: break-word;
   position: relative;
-  bottom: 30px;
+
 }
