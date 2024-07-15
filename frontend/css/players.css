@@ -58,7 +58,10 @@ body, html {
     object-fit: cover;
   }
   
-  
+  .link{
+    text-decoration: none;
+    color: black;
+  }
   .text-wrapper-14 {
     width: 118px;
     top: 30px;
