@@ -2,18 +2,15 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: "Baloo 2", sans-serif;
+    font-family: "Baloo 2", sans-serif; 
 }
 
 .box {
     width: 1475px;
 
 }
-.link{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-.box .fondo {
+
+.box .fondoabout {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -65,6 +62,11 @@ body, html {
     letter-spacing: 0;
     line-height: normal;
   }
+
+.link{
+    text-decoration: none;
+    color: black;
+}
   
 .text-wrapper-15 {
     width: 118px;
@@ -117,30 +119,17 @@ body, html {
   }
   
 
-.contactcont {
+.wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 16px;
-    text-align: center;
-    z-index: 1;
-}
-
-.ContactUs {
-    color: white;
-    font-size: 96px;
-    font-family: "Baloo", sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-    z-index: 1;
-    
 }
 
 .footer {
     width: 100%; 
     height: 86px; 
     bottom: 0px;
-    position: fixed;
+    position:fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +140,7 @@ body, html {
     height: 56px; 
     left: 0px; 
     bottom: 0px; 
-    position: absolute; 
+    position: fixed; 
     background: #001B48; 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -168,81 +157,157 @@ body, html {
     font-weight: 500; 
 } 
 
-.redes1 {
+.main-content {
     display: flex;
-    position: absolute;
-    left: 450px;
-    width: 300px;
-    top: 400px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    bottom: 70px;
 }
 
-.redes1 .Fiuba {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    color: black;
+.Rectangle21 {
+    width: 1000px; 
+    height: 400px; 
+    background: #F1FAEE; 
+    border-radius: 10px;
+    position: relative;
+    padding: 3em;
+
+}
+.adding{
     font-size: 40px;
-    font-family: Baloo;
-    font-weight: 400;
+}
+.Rectangle24 {
+    width: 143px; 
+    height: 54px; 
+    left: 803px; 
+    top: 600px; 
+    position: relative; 
+    background: #397DED; 
+    border-radius: 10px;
+    cursor: default;
+    transition: all 400ms ease-in-out;
+
+}
+
+.Rectangle24:hover {
+ transform: scale(1.1);    
+}
+
+.AddTeam {
+    width: 417px; 
+    height: 109px; 
+    left: 9px; 
+    top: 33px; 
+    position: absolute; 
+    text-align: center; 
+    color: #001B48; 
+    font-size: 70px; 
+    font-family: Baloo; 
+    font-weight: 400; 
     word-wrap: break-word;
-    left: 75px;
 
 }
 
-.redes1 .slack {
-    display: flex;
-    position: absolute;
-    left: 500px;
+.Rectangle22 {
+    width: 858px; 
+    height: 60px; 
+    left: 71px; 
+    top: 231px; 
+    position: absolute; 
+    background: #E7E7E7; 
+    border-radius: 10px;
+
 }
 
-.redes1 .inguba {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    color: black;
-    font-size: 40px;
-    font-family: Baloo;
-    font-weight: 400;
+.Name{
+    width: 175px; 
+    height: 55px; 
+    left: 43px; 
+    top: 159px; 
+    position: absolute; 
+    text-align: center; 
+    color: black; 
+    font-size: 40px; 
+    font-family: Baloo; 
+    font-weight: 400; 
     word-wrap: break-word;
-    left: 580px;
+
 }
 
-.redes2 {
-    display: flex;
-    position: absolute;
-    left: 450px;
-    width: 300px;
-    top: 600px;
+.Add{
+    width: 175px; 
+    height: 55px; 
+    left: 787px; 
+    top: 606px; 
+    position: absolute; 
+    text-align: center; 
+    color: white; 
+    font-size: 30px; 
+    font-family: Baloo; 
+    font-weight: 400; 
+    word-wrap: break-word;   
+}
+
+label{
+    display: inline-block;
+    font-size: 2em;
+    font-family: Baloo; 
+    font-weight: 400; 
+    word-wrap: break-word;   
+    margin-bottom: 5px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 1em;
+  }
+
+.valor{
+    margin-bottom: 2em;
+}
+
+.button{
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+.button:hover{
+    background-color: transparent;
+    cursor: pointer;
 }
 
 
-.redes2 .instafiu{
-    display: flex;
-    position: absolute;
-    top: 5px;
-    color: black;
-    font-size: 40px;
-    font-family: Baloo;
-    font-weight: 400;
+
+
+.Rectangle23 {
+    width: 858px; 
+    height: 60px; 
+    left: 71px; 
+    top: 399px; 
+    position: absolute; 
+    background: #E7E7E7; 
+    border-radius: 10px;
+
+}
+
+.ClubLogo {
+    width: 249px; 
+    height: 55px; 
+    left: 43px; 
+    top: 327px; 
+    position: absolute; 
+    text-align: center; 
+    color: black; 
+    font-size: 40px; 
+    font-family: Baloo; 
+    font-weight: 400; 
     word-wrap: break-word;
-    left: 75px;
-
-}
-
-.redes2 .github {
-    display: flex;
-    position: absolute;
-    left: 500px;
-}
-
-.redes2 .gitromita {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    color: black;
-    font-size: 40px;
-    font-family: Baloo;
-    font-weight: 400;
-    word-wrap: break-word;
-    left: 580px;
 }

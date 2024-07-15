@@ -1,70 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa America</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        img {
-            background-color: rgb(34, 34, 34);
-        }
-        #cup,#fotito,#esc{
-            background-color: transparent;         
-        }
-        #agregar{
-            font-size: larger;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../css/players.css">
+    <title>Copa America Web</title>
 </head>
-
-<header class="bg-dark text-white p-3 mb-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="display-4"><span id="nombre_equipo"></span></h1>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" id="agregar">Add player</a>
-                                    <a class="nav-link" id="return"><img id="fotito" src="https://cdn0.iconfinder.com/data/icons/thin-line-color-2/21/05_1-512.png" width="40px" height="40px"> Return</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-6"><img id="esc"></div>
-            <div class="col">
-                <img id="cup" src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F83.png" width="150px" height="150px">
-            </div>
-        </div>
-    </div>
-</header>
-
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Squad</h1>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/players_page/fondoplayers.png?raw=true" />
+            </div>
+            <div class="mainbox">
+                <div class="menu"><div class="rectangle"></div></div>
+                <div class="image">
+                    <img class="logo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/logocopa.png?raw=true">
+                <div class="text-wrapper-14">
+                    <a id="remove_t" type="button" href="/teams" class="link" onclick="remove_team()">REMOVE</a>
+                </div>
+                <div class="text-wrapper-15">
+                    <a class="link" href="/teams">TEAMS</a>
+                </div>
+                <div class="text-wrapper-16">
+                    <a class="link" href="/">HOME</a>
+                </div>
+                <div class="text-wrapper-17">
+                    <a id="edit_t" type="button" class="link">EDIT</a>
+                </div>
+                <img class="menu-close" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/Variant3.png?raw=true" />
+            </div>    
+        </header>
+
+        <div class="nombrequipo">
+            <div class="equipo"><p id="nombre_equipo"></p></div>
+        </div>
+
+        <div class="tarjeta" id="players">
+            <div class="Rectangle12 boton">
+                <a id="formadd"><img class="botonclick" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/players_page/addplayers.png?raw=true"></a>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row g-4" id="players">
-        </div>
-        <br>
-        <a id="remove_t" type="button" href="/teams" class="btn btn-danger" onclick="remove_team()">Remove team</a>
-        <a id="edit_t" type="button" class="btn btn-primary">Edit team</a>
-    </div>
+
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div> 
+    </section>
     
 
 
@@ -104,69 +88,56 @@
         }
             
         function parse_data(content){
-            console.log(id)
+            console.log(content.name)
             const edit = document.getElementById("edit_t")
             edit.setAttribute("href", `/teams/team/edit/?id=${id}`)
 
-            const comeback = document.getElementById("return")
-            comeback.setAttribute("href", "http://localhost:8000/teams/")
  
-            const add = document.getElementById("agregar")
-            add.setAttribute("href", `http://localhost:8000/teams/team/add_player/?id=${id}`)
+            const add = document.getElementById("formadd")
+            add.setAttribute("href", `/teams/team/add_player?id=${content.id}`)
+
             const nombre = document.getElementById("nombre_equipo")
             nombre.innerText = content.name
-
-            const escudo = document.getElementById("esc")
-            escudo.setAttribute("src", content.img)
-            escudo.setAttribute("width", "150px")
-            escudo.setAttribute("height", "150px")
-
-
+            
             const container = document.getElementById("players")
+
             for (let index = 0; index < (content.players).length; index++){
                 const div = document.createElement("div")
-                div.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2")
+                div.setAttribute("class","Rectangle12")
 
-                const item = document.createElement("p")
-                item.innerText = `${content.players[index].name}`
-                item.setAttribute("align", "center")
+                const carta = document.createElement("a")
+                carta.setAttribute("href", `/teams/team/player?id=${content.players[index].id}`)
 
-                const posicion = document.createElement("p")
-                posicion.innerText = `${content.players[index].position}`
-                posicion.setAttribute("align", "center")
+                const fondo = document.createElement("img")
+                fondo.setAttribute("class", "fondojug")
+                fondo.setAttribute("src", "https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/players_page/fondojugador.png?raw=true")
 
-                const card = document.createElement("a")
-                card.setAttribute("class", "card text-decoration-none")
-                card.setAttribute("href", `http://localhost:8000/teams/team/player?id=${content.players[index].id}`)
+                const nombre = document.createElement("div")
+                nombre.setAttribute("class", "nombrejug")
+                nombre.innerText = content.players[index].name
 
-
-                const card_body = document.createElement("div")
-
-                card_body.setAttribute("padding", "1em")
-                card_body.setAttribute("border-color", "red")               
+                const posicion = document.createElement("div")
+                posicion.setAttribute("class", "position")
+                posicion.innerText = content.players[index].position
 
                 const imagen = document.createElement("img")
-                imagen.setAttribute("class", "card-img-top")
+                imagen.setAttribute("class", "fotojugador")
                 imagen.setAttribute("src", content.players[index].img)
 
+                posicion.append(imagen)
+                nombre.append(posicion)
+                div.append(fondo)
+                div.append(nombre)
+                carta.append(div)
+                container.append(carta)
 
-                card_body.append(imagen)
-                card_body.append(item)
-                card_body.append(posicion)
-                card.append(card_body)
-
-                div.append(card)
-                container.append(div)
-            }
 
 
 
             }
 
-            function request_error(error) {
-                console.log("ERROR")
-                console.log(error);
-            }
+
+        }
 
 
             let params = window.location.search

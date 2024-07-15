@@ -8,6 +8,17 @@ body, html {
     width: 1475px;
 
 }
+.mainbox{
+    position: relative;
+    top: 55px;
+    left: 50%; 
+    z-index:5;
+    }
+    .link{
+        text-decoration: none;
+        color: black;
+    }
+
 
 .box .fondo {
     position: fixed;
@@ -214,13 +225,14 @@ body, html {
 }
 
 .contenido {
-    color: #0455BF; 
+    color: #000000; 
     font-size: 24px; 
     font-family: Baloo; 
     font-weight: 400; 
     word-wrap: break-word;
     text-align: center;
     margin-top: 10px;
+    text-decoration: none;
 }
 
 .boton {

@@ -29,7 +29,10 @@ nav ul li a {
 main {
     padding: 2rem;
 }
-
+.link{
+    text-decoration: none;
+    color: black;
+}
 table {
     width: 100%;
     border-collapse: collapse;

@@ -9,6 +9,10 @@ body, html {
     width: 1475px;
 
 }
+.link{
+    text-decoration: none;
+    color: black;
+}
 
 .box .fondoabout {
     position: fixed;

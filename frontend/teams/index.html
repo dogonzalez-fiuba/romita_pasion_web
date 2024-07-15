@@ -12,31 +12,33 @@
             <div class="box">
                 <img class="fondo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/teams_page/fondoteams.png?raw=true" />
             </div>
-            <div class="menu">
-                <div class="rectangle"></div>
+            <div class="mainbox">
+                <div class="menu">
+                    <div class="rectangle"></div>
+                </div>
+                <div class="image">
+                    <img class="logo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/logocopa.png?raw=true" />
+                </div>
+                <div class="text-wrapper-14">
+                    <a class="link" href="http://localhost:8000/contact">CONTACT</a>
+                </div>
+                <div class="text-wrapper-15">
+                    <a class="link" href="http://localhost:8000/teams">TEAMS</a>
+                </div>
+                <div class="text-wrapper-16">
+                    <a class="link" href="http://localhost:8000">HOME</a>
+                </div>
+                <div class="text-wrapper-17">
+                    <a class="link" href="http://localhost:8000/about/">ABOUT</a>
+                </div>
+                <img class="menu-close" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/Variant3.png?raw=true" />
             </div>
-            <div class="image">
-                <img class="logo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/logocopa.png?raw=true" />
-            </div>
-            <div class="text-wrapper-14">
-                <a href="http://localhost:8000/contact">CONTACT</a>
-            </div>
-            <div class="text-wrapper-15">
-                <a href="http://localhost:8000/teams">TEAMS</a>
-            </div>
-            <div class="text-wrapper-16">
-                <a href="http://localhost:8000">HOME</a>
-            </div>
-            <div class="text-wrapper-17">
-                <a href="http://localhost:8000/about/">ABOUT</a>
-            </div>
-            <img class="menu-close" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/Variant3.png?raw=true" />
         </header>
 
         <div class="Teams">Teams</div>
 
         <div class="tarjeta" id="teams">
-            <a href="/teams/team/add" class="Rectangle12 boton">
+            <a id="boton_add" class="Rectangle12 boton">
                 <img class="botonclick" src="https://raw.githubusercontent.com/dogonzalez-fiuba/romita_pasion_web/e27ff77b4905cd87ea2133415af0d87177d2d246/frontend/teams_page/botonteams.svg">
             </a>
         </div>
@@ -64,12 +66,14 @@
 
             console.log(content.teams[3].players)
 
+            const boton = document.getElementById("boton_add")
+            boton.setAttribute("href", '/teams/add')
+
             const container = document.getElementById("teams")
 
             for (let index = 0; index < (content.teams).length; index++) {
 
                 const div = document.createElement("div")
-                div.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2")
                 div.setAttribute("class", "Rectangle12")
 
 

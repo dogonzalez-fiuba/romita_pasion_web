@@ -142,7 +142,10 @@ body, html {
     letter-spacing: 0;
     line-height: normal;
   }
-
+.link{
+    text-decoration: none;
+    color: black;
+}
 .menu-close {
     position: fixed;
     width: 39px;

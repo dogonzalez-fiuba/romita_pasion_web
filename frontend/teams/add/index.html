@@ -1,55 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa America</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../css/addteam.css">
+    <title>Copa America Web</title>
 </head>
-
-<header class="bg-dark text-white p-3 mb-4">
-    <div class="container">
-        <h1 class="display-4" align="center">Adding team<span id="nombre_equipo"></span></h1>
-        <a class="nav-link" id="return" href="/teams" ><img id="fotito" src="https://cdn0.iconfinder.com/data/icons/thin-line-color-2/21/05_1-512.png" width="40px" height="40px"> Return</a>
-
-    </div>
-</header>
-
-
-
 <body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondoabout" src="https://blog.cognifit.com/wp-content/uploads/2019/10/futbol-1.jpg" />
+            </div>
+            <div class="Rectangle26"></div>
+            <div class="menu"><div class="rectangle"></div></div>
+            <div class="image">
+                <img class="logo" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/logocopa.png?raw=true" />
+            </div>
+            <div class="text-wrapper-14">
+                <a class="link" href="/contact">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a class="link" href="/teams">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a class="link" href="/">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a class="link" href="/about">ABOUT</a>
+            </div>
+            <img class="menu-close" src="https://github.com/dogonzalez-fiuba/romita_pasion_web/blob/testing/frontend/img/Variant3.png?raw=true" />
+        </header>
 
-        <div class="row">
-                <div >
-                    <div lass="col-auto">
-                        <div class="container text-center">
-                            <div class="row">
-                              <div class="col"><img height="500px" width="400px" src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F83.png"></div>
-                              <div class="col-4">
-                                
-                                <h2 >Add team</h2>
-                                <form onsubmit="add_team(event)" action="http://localhost:8000/teams">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" required placeholder="Nacional team">
-                                    </div>
-        
-                                    <div class="mb-3">
-                                        <label for="image" class="form-label">Image URL</label>
-                                        <input type="text" class="form-control" id="image" name="image"
-                                            placeholder="https://. . . .">
-                                    </div>
-                                    <input type="submit",  onclick="window.location.href = '/teams';", class="btn btn-success" value="ADD TEAM">
-                                </form>
-                              </div>
-                              <div class="col"><img height="500px" width="400px" src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F83.png"></div>
-                            </div>
-                          </div>
+        <div class="main-content">
+            <div class="Rectangle21">
+                <h1>ADDING TEAM</h1>
+                <form onsubmit="add_team(event)" action="http://localhost:8000/teams">
+                    <div class="valor">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Nacional team">
                     </div>
-                </div>
+
+                    <div class="valor">
+                        <label for="image">Image URL</label>
+                        <input type="text" id="image" name="image"
+                            placeholder="https://. . . .">
+                    </div>
+                    <input class="button" type="submit",  onclick="window.location.href = '/teams';" value="ADD TEAM">
+                </form>
+            </div>
         </div>
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div> 
+    </section>
 </body>
 
 
