@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about/styleabout.css') }}">
+    <title>Copa America Web</title>
+</head>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondoabout" src="{{ url_for('static', filename='about/About.png') }}" />
+            </div>
+            <div class="Rectangle26"></div>
+            <div class="menu"><div class="rectangle"></div></div>
+            <div class="image">
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+
+        </header>
+        <div class="wrapper">
+            <div class="WeAreRomitaPasion">We Are Romita Pasion</div>
+            <div class="descripcion">
+                We are a passionate group of students from the Faculty of Engineering at the University of Buenos Aires (FIUBA). As part of our course on Introduction to Software Development, we have created this website dedicated to the Copa America 2024, hosted in the USA.<br/><br/>Our team is composed of future engineers who share a deep love for both technology and sports. This project allowed us to combine our technical skills with our enthusiasm for one of the most exciting football tournaments in the world. Our goal is to provide fans with up-to-date information, engaging content, and a user-friendly experience as they follow the thrilling matches of Copa America 2024.
+            </div>
+            <div class="Hello">Hello!</div>
+        </div>
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='players_page/addplayer/addplayer.css') }}">
+    <title>Copa America Web</title>
+</head>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondoabout" src="{{ url_for('static', filename='players_page/addplayer/fondoaddedit.png') }}" />
+            </div>
+            <div class="Rectangle26"></div>
+            <div class="menu">
+                <div class="rectangle"></div>
+            </div>
+            <div class="image">
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="Rectangle21">
+                <form id="addPlayerForm">
+                    <div class="Rectangleadd">
+                        <button type="submit" class="Add">Add</button>
+                    </div>
+                    <div class="AddTeam">Add Player</div>
+                    <div class="Rectangle22"></div>
+                    <div class="Name">Name: <input type="text" id="playerName" name="name" required></div>
+                    <div class="Rectangle23"></div>
+                    <div class="ClubLogo">Number: <input type="text" id="playerNumber" name="number" required></div>
+                    <div class="Rectangle25"></div>
+                    <div class="Photo">Photo: <input type="text" id="playerPhoto" name="img" required></div>
+                    <div class="Rectangle28"></div>
+                    <div class="Position">Position: <input type="text" id="playerPosition" name="position" required></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('addPlayerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const playerName = document.getElementById('playerName').value;
+            const playerNumber = document.getElementById('playerNumber').value;
+            const playerPhoto = document.getElementById('playerPhoto').value;
+            const playerPosition = document.getElementById('playerPosition').value;
+            const teamId = "{{ team_id }}"; // Pasar el team_id desde la plantilla
+
+            fetch(`/teams/team/${teamId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: playerName,
+                    number: playerNumber,
+                    position: playerPosition,
+                    img: playerPhoto,
+                    team_id: teamId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Internal server error') {
+                    alert('Error adding player');
+                } else {
+                    alert('Player added successfully');
+                    window.location.href = `/players_page/${teamId}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

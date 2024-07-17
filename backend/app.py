@@ -1,14 +1,58 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, Team, Player
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', template_folder='../frontend')
 CORS(app)
 port = 5000
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:123456@localhost:5432/flask_api_test'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:123456@localhost:5432/flask_api_test'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Ruta para servir la página de inicio
+@app.route('/home')
+def home():
+    return render_template('index.html')
+
+@app.route('/teams_page')
+def teams_page():
+    all_teams = Team.query.all()
+    return render_template('teams_page/teams.html', teams=all_teams)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact/contact.html')
+
+@app.route('/about')
+def about():
+    return render_template('about/about.html')
+
+@app.route('/players_page/<int:team_id>')
+def players_page(team_id):
+    team = Team.query.get_or_404(team_id)
+    players = team.players
+    return render_template('players_page/players.html', team=team, players=players)
+
+@app.route('/add_player_page/<int:team_id>')
+def add_player_page(team_id):
+    return render_template('players_page/addplayer/addplayer.html', team_id=team_id)
 
 
+@app.route('/edit_player_page/<int:player_id>')
+def edit_player_page(player_id):
+    player = Player.query.get_or_404(player_id)
+    return render_template('players_page/editplayer/editplayer.html', player=player)
+
+@app.route('/edit_team_page/<int:team_id>')
+def edit_team_page(team_id):
+    team = Team.query.get_or_404(team_id)
+    return render_template('players_page/editteam/editteam.html', team=team)
+
+
+@app.route('/add_team_page')
+def add_team_page():
+    return render_template('teams_page/addteam/addteam.html')
+
+# Ruta para servir json
 @app.route('/teams', methods=['GET'])
 def get_all_teams():
     try:
@@ -27,7 +71,7 @@ def get_all_teams():
                     'name': player.name,
                     'number': player.number,
                     'position': player.position,
-                    'img':player.img,
+                    'img': player.img,
                     'team_id': player.team_id
                 }
                 team_data['players'].append(player_data)
@@ -87,7 +131,6 @@ def get_players():
 def get_player(id_player):
     try:
         player = Player.query.get(id_player)
-
         player_data = {
             'id': player.id,
             'name': player.name,
@@ -99,9 +142,6 @@ def get_player(id_player):
         return jsonify({"players": player_data})
     except: 
         return jsonify({'message': 'Internal server error'}), 500
-
-
-
 
 @app.route('/teams', methods=['POST'])
 def add_team():
