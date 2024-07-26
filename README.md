@@ -47,6 +47,8 @@ e. View Databases and Roles
 ```bash
 \l
 \du
+SELECT * FROM teams;
+\dt
 \q #salir
 ```
 f. Connect to the flask_api_test database.
