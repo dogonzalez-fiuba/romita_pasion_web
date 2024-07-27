@@ -161,8 +161,8 @@ body, html {
 }
 
 .Rectangle21 {
-    width: 1000px; 
-    height: 700px; 
+    width: 900px; 
+    height: 500px; 
     background: #F1FAEE; 
     border-radius: 10px;
     position: relative;
@@ -202,14 +202,35 @@ body, html {
 }
 
 .Rectangle22 {
-    width: 858px; 
+    width: 658px; 
     height: 60px; 
     left: 71px; 
     top: 231px; 
     position: absolute; 
-    background: #E7E7E7; 
-    border-radius: 10px;
 
+}
+
+
+label {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-size: 16px;
+    font-style: italic;
 }
 
 .Name{
