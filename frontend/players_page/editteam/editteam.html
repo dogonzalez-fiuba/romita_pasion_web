@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='players_page/editteam/editteam.css') }}">
+    <title>Copa America Web</title>
+</head>
+<body>
+    <section class="home">
+        <header class="navbar">
+            <div class="box">
+                <img class="fondoabout" src="{{ url_for('static', filename='players_page/editteam/fondoaddedit.png') }}" />
+            </div>
+            <div class="Rectangle26"></div>
+            <div class="menu">
+                <div class="rectangle"></div>
+            </div>
+            <div class="image">
+                <img class="logo" src="{{ url_for('static', filename='img/logocopa.png') }}" />
+            </div>
+            <div class="text-wrapper-14">
+                <a href="{{ url_for('contact') }}">CONTACT</a>
+            </div>
+            <div class="text-wrapper-15">
+                <a href="{{ url_for('teams_page') }}">TEAMS</a>
+            </div>
+            <div class="text-wrapper-16">
+                <a href="{{ url_for('home') }}">HOME</a>
+            </div>
+            <div class="text-wrapper-17">
+                <a href="{{ url_for('about') }}">ABOUT</a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="Rectangle21">
+                <form id="editTeamForm">
+                    <div class="Rectangle24"></div>
+                    <div class="AddTeam">Edit Team</div>
+                    <div class="Rectangle22"></div>
+                    <div class="Name">Name: <input type="text" id="teamName" name="name" value="{{ team.name }}" required></div>
+                    <div class="Rectangle23"></div>
+                    <div class="ClubLogo">Club Logo: <input type="text" id="teamLogo" name="img" value="{{ team.img }}" required></div>
+                    <div class="Rectangleadd">
+                        <button type="submit" class="Add">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('editTeamForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const teamName = document.getElementById('teamName').value;
+            const teamLogo = document.getElementById('teamLogo').value;
+            const teamId = "{{ team.id }}"; // Pasar el team_id desde la plantilla
+
+            fetch(`/teams/team/${teamId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: teamName,
+                    img: teamLogo
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Internal server error') {
+                    alert('Error updating team');
+                } else {
+                    alert('Team updated successfully');
+                    window.location.href = `/players_page/${teamId}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

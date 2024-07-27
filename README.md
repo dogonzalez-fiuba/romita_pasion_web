@@ -25,23 +25,38 @@ pip install Flask Flask-SQLAlchemy psycopg2-binarypip install flask-cors
 
 ### 3. Configure PostgreSQL Database
 
-a. Open PostgreSQL terminal.
+a. To check if PostgreSQL is installed on your system
 ```bash
-psql postgres
+psql --version
 ```
-b. Create a user and database.Sql
-
+b. Start PostgreSQL Server (MacOS)
+```bash
+brew services start postgresql@14
+```
+c. Open PostgreSQL terminal and Access PostgreSQL.
+```bash
+psql -U postgres
+```
+d. Create a user and database.Sql
 ```bash
 CREATE USER postgres WITH ENCRYPTED PASSWORD '123456';
 CREATE DATABASE flask_api_test;
 GRANT ALL PRIVILEGES ON DATABASE flask_api_test TO postgres;
+```
+e. View Databases and Roles
+```bash
+\l
+\du
+SELECT * FROM teams;
+\dt
+\q #salir
+```
+f. Connect to the flask_api_test database.
+```bash
+psql -U postgres -d flask_api_test
 
 ```
-c. Connect to the flask_api_test database.
-```bash
-psql -d flask_api_test
-```
-d. Create the tables.
+g. Create the tables.
 ```bash
 -- Crear tabla teams
 CREATE TABLE teams (
@@ -62,7 +77,7 @@ CREATE TABLE players (
 
 ```
 
-e. Insert initial data. sql
+h. Insert initial data. sql
 
 ```bash
 -- Insertar equipos
@@ -79,6 +94,13 @@ INSERT INTO players (name, number, position, img, team_id) VALUES
 ('Arturo Vidal', 8, 'Midfielder', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDQF-0cy5oQn4MoFU-_p9OuA8RegPBIIWMjQ&usqp=CAU', 3),
 ('Luis Suárez', 9, 'Forward', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQumQbtigXYjxGz39q3YbQDtZAMky-RIGRUtVDMfHiQ2Ukd2wCDUztCqt02LhciccRJo3k&usqp=CAU', 4);
 
+```
+i. to see
+![alt text](image.png)
+
+j. To stop the PostgreSQL service using Homebrew (MacOS)
+```bash
+brew services stop postgresql@14
 ```
 ###  4. Configure the Application
 Update the config.py file with your database credentials.
@@ -103,7 +125,7 @@ Visit http://127.0.0.1:5000 in your browser to see the application running.
 
 ### Usage
 ```bash
-Home Page: http://127.0.0.1:5000/
+Home Page: http://127.0.0.1:5000/home
 View Teams: http://127.0.0.1:5000/teams
 Add Team: http://127.0.0.1:5000/teams/add
 Edit Team: http://127.0.0.1:5000/teams/<id>/edit

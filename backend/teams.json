@@ -1,0 +1,214 @@
+[
+    {
+      "id": 1,
+      "img": "https://a.espncdn.com/photo/2023/0417/r1160276_1000x1000_1-1.png",
+      "name": "Argentina",
+      "players": [
+        {
+          "id": 24,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-01.png&w=384&q=75",
+          "name": "Franco Armani",
+          "number": 1,
+          "position": "Goalkeeper",
+          "team_id": 1
+        },
+        {
+          "id": 26,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-03.png&w=384&q=75",
+          "name": "Nicol\u00e1s Tagliafico",
+          "number": 3,
+          "position": "Defender",
+          "team_id": 1
+        },
+        {
+          "id": 27,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-04.png&w=384&q=75",
+          "name": "Gonzalo Montiel",
+          "number": 4,
+          "position": "Defender",
+          "team_id": 1
+        },
+        {
+          "id": 28,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-05.png&w=384&q=75",
+          "name": "Leandro Paredes",
+          "number": 5,
+          "position": "Midfielder",
+          "team_id": 1
+        },
+        {
+          "id": 30,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-07.png&w=384&q=75",
+          "name": "Rordigo de Paul",
+          "number": 7,
+          "position": "Midfielder",
+          "team_id": 1
+        },
+        {
+          "id": 31,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-08.png&w=384&q=75",
+          "name": "Marcos Acu\u00f1a",
+          "number": 8,
+          "position": "Defender",
+          "team_id": 1
+        },
+        {
+          "id": 35,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-09.png&w=384&q=75",
+          "name": "Julian Alvarez",
+          "number": 9,
+          "position": "Striker",
+          "team_id": 1
+        },
+        {
+          "id": 36,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-10.png&w=384&q=75",
+          "name": "Lionel Messi",
+          "number": 10,
+          "position": "Striker",
+          "team_id": 1
+        },
+        {
+          "id": 43,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fargentina%2Fargentina-09.png&w=384&q=75",
+          "name": "asd",
+          "number": 11,
+          "position": "Defender",
+          "team_id": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "img": "https://a.espncdn.com/photo/2022/0321/r989426_1024x1024_1-1.png",
+      "name": "Chile",
+      "players": [
+        {
+          "id": 11,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fchile%2Fchile-01.png&w=384&q=75",
+          "name": "Claudio Bravo",
+          "number": 1,
+          "position": "Goalkeeper",
+          "team_id": 3
+        },
+        {
+          "id": 21,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fchile%2Fchile-02.png&w=384&q=75",
+          "name": "Gabriel Suazo",
+          "number": 2,
+          "position": "Defender",
+          "team_id": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "img": "https://a.espncdn.com/photo/2022/0327/r992022_1200x1200_1-1.png",
+      "name": "Canada",
+      "players": []
+    },
+    {
+      "id": 5,
+      "img": "https://a.espncdn.com/photo/2022/0707/r1033816_500x500_1-1.png",
+      "name": "Mexico",
+      "players": []
+    },
+    {
+      "id": 6,
+      "img": "https://a.espncdn.com/photo/2022/0321/r989422_650x650_1-1.png",
+      "name": "Ecuador",
+      "players": []
+    },
+    {
+      "id": 8,
+      "img": "https://a.espncdn.com/photo/2023/0901/r1218506_800x800_1-1.png",
+      "name": "Venezuela",
+      "players": []
+    },
+    {
+      "id": 9,
+      "img": "https://a.espncdn.com/photo/2023/1123/r1257068_1000x1000_1-1.png",
+      "name": "Jamaica",
+      "players": []
+    },
+    {
+      "id": 10,
+      "img": "https://a.espncdn.com/photo/2022/0331/r993396_1000x1000_1-1.png",
+      "name": "Estados Unidos",
+      "players": []
+    },
+    {
+      "id": 11,
+      "img": "https://a.espncdn.com/photo/2020/0213/r665662_595x595_1-1.png",
+      "name": "Uruguay",
+      "players": []
+    },
+    {
+      "id": 12,
+      "img": "https://a.espncdn.com/photo/2023/1123/r1257069_1000x1000_1-1.png",
+      "name": "Panam\u00e1",
+      "players": []
+    },
+    {
+      "id": 13,
+      "img": "https://a.espncdn.com/photo/2022/0321/r989429_500x500_1-1.png",
+      "name": "Bolivia",
+      "players": []
+    },
+    {
+      "id": 14,
+      "img": "https://a.espncdn.com/photo/2022/0716/r1036946_1000x1000_1-1.png",
+      "name": "Brasil",
+      "players": []
+    },
+    {
+      "id": 15,
+      "img": "https://a.espncdn.com/photo/2018/1009/r444679_600x600_1-1.png",
+      "name": "Colombia",
+      "players": []
+    },
+    {
+      "id": 46,
+      "img": "https://a.espncdn.com/photo/2022/0321/r989428_1024x1024_1-1.png",
+      "name": "Paraguay",
+      "players": [
+        {
+          "id": 38,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fparaguay%2Fparaguay-01.png&w=384&q=75",
+          "name": "Carlos ",
+          "number": 1,
+          "position": "Goalkeeper",
+          "team_id": 46
+        },
+        {
+          "id": 39,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fparaguay%2Fparaguay-02.png&w=384&q=75",
+          "name": "Ivan Ramirez",
+          "number": 2,
+          "position": "Defender",
+          "team_id": 46
+        },
+        {
+          "id": 40,
+          "img": "https://copaamerica.com/_next/image?url=%2Fplayers%2Fparaguay%2Fparaguay-03.png&w=384&q=75",
+          "name": "Omar  Alderete",
+          "number": 3,
+          "position": "Defender",
+          "team_id": 46
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "img": "https://a.espncdn.com/photo/2022/0614/r1025128_1000x1000_1-1.png",
+      "name": "Costa Rica",
+      "players": []
+    },
+    {
+      "id": 51,
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9_FYkfaJYHc_lKAUTYG57u444hJgpaT99Xg&s",
+      "name": "Romita Pasion",
+      "players": []
+    }
+  ]
+  

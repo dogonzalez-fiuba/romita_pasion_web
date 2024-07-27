@@ -1,7 +1,6 @@
 body, html {
     height: 100%;
     width: 100%;
-    margin: 0;
     font-family: "Baloo 2", sans-serif;
 }
 
@@ -16,13 +15,13 @@ body, html {
     height: 100%;
     top: 0;
     left: 0;
-    object-fit: cover
+    object-fit: cover;
+    z-index: -1;
 }
 
 .menu {
     width: 100%;
     height: 86px;
-    z-index: 4;
 }
 
 .menu .rectangle {
@@ -51,44 +50,6 @@ body, html {
     z-index: 4;
 }
 
-.logocentro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.label {
-    width: 739px;
-    height: 455px;
-}
-
-.label .COPA-AMERICA {
-    position: Absolute;
-    width: 700px;
-    top: 264px;
-    text-shadow: 0px 4px 4px #00000040;
-    font-family: "Inter-Bold", Helvetica;
-    font-weight: 700;
-    color: #f1faee;
-    font-size: 128px;
-    text-align: right;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.image {
-    width: 566px;
-    height: 407px;
-    left: 100px;
-}
-
-.image .trofeo {
-    position: absolute;
-    width: 166px;
-    height: 407px;
-    top: 292px;
-    object-fit: cover;
-}
 
 .text-wrapper-14 {
     width: 118px;
@@ -103,6 +64,7 @@ body, html {
     letter-spacing: 0;
     line-height: normal;
     z-index: 4;
+
   }
   
 .text-wrapper-15 {
@@ -149,56 +111,32 @@ body, html {
     line-height: normal;
     z-index: 4;
   }
-
-.link{
-    text-decoration: none;
-    color: black;
-}
-
-.menu-close {
-    position: fixed;
-    width: 39px;
-    height: 31px;
-    top: 28px;
-    right: 50px;
-  }
   
 
-.boton-see-more {
-    position: absolute;
-    width: 301px;
-    height: 63px;
-    top: 788px;
-    background-color: #ffffff;
-    border-radius: 31.5px;
-    border: 2px solid;
-    border-color: #f1faee;
+.contactcont {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.boton-see-more .text-wrapper {
-    position: absolute;
-    font-family: "Baloo 2-Medium", Helvetica;
-    font-weight: 500;
-    color: #000000;
-    font-size: 24px;
+    height: 16px;
     text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
+    z-index: 1;
 }
 
-.wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ContactUs {
+    color: white;
+    font-size: 96px;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    z-index: 1;
+    
 }
 
 .footer {
     width: 100%; 
     height: 86px; 
-    position: relative;
+    bottom: 0px;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,3 +163,84 @@ body, html {
     font-family: Baloo 2; 
     font-weight: 500; 
 } 
+
+.Teams {
+    width: 367px; 
+    height: 150px; 
+    left: 128px; 
+    top: 164px; 
+    position: absolute; 
+    text-align: center; 
+    color: white; 
+    font-size: 96px; 
+    font-family: Baloo; 
+    font-weight: 400; 
+    word-wrap: break-word;
+}
+
+.tarjeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    margin-top: 100px;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.Rectangle12 {
+    width: 249px; 
+    height: 288px;
+    background: #D9D9D9; 
+    border-radius: 20px; 
+    cursor: default;
+    transition: all 200ms ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.Rectangle12:hover {
+    transform: scale(1.1);
+}
+
+.escudo {
+    max-width: 100%;
+    max-height: 70%;
+    object-fit: contain;
+}
+
+.contenido {
+    color: #0455BF; 
+    font-size: 24px; 
+    font-family: Baloo; 
+    font-weight: 400; 
+    word-wrap: break-word;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.boton {
+    width: 249px; 
+    height: 288px;
+    background: #D9D9D9; 
+    border-radius: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+.boton img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.boton:hover {
+    transform: scale(1.1);
+}
