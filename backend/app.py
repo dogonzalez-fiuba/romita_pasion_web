@@ -156,6 +156,11 @@ def remove_player(id_player):
 def remove_team(id):
     try:
         team = Team.query.get(id)
+        players = Player.query.filter_by(team_id=team.id).all()
+        for player in players:
+            db.session.delete(player)
+
+
         db.session.delete(team)
         db.session.commit()
         return jsonify({'message': 'Team removed'})
