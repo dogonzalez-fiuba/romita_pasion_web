@@ -9,14 +9,14 @@ db = SQLAlchemy(app)
 
 class Team(db.Model):
     __tablename__ = 'teams'
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True) 
     name = db.Column(db.String(50), nullable = False)
     img = db.Column(db.String(255), nullable = False)
     players = db.relationship("Player")
 
 class Player(db.Model):
     __tablename__ = 'players'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True) 
     name = db.Column(db.String(255), nullable=False)
     number = db.Column(db.Integer, nullable=False)
     position = db.Column(db.String(50), nullable=False)

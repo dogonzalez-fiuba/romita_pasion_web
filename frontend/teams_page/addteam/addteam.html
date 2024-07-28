@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name ="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ url_for('static', filename='teams_page/addteam/addteam.css') }}">
     <title>Copa America Web</title>
 </head>
@@ -30,20 +30,19 @@
             <div class="text-wrapper-17">
                 <a href="{{ url_for('about') }}">ABOUT</a>
             </div>
-            
         </header>
 
         <div class="main-content">
             <div class="Rectangle21">
                 <div class="Rectangle24"></div>
                 <div class="AddTeam">Add Team</div>
-                <form action="{{ url_for('add_team') }}" method="post" enctype="multipart/form-data">
+                <form id="add-team-form">
                     <div class="Rectangle22">
-                        <input type="text" name="name" placeholder="Enter team name" required>
+                        <input type="text" name="name" id="team-name" placeholder="Enter team name" required>
                     </div>
                     <div class="Name">Name</div>
                     <div class="Rectangle23">
-                        <input type="file" name="logo" accept="image/*" required>
+                        <input type="text" name="img" id="team-logo" placeholder="Enter team logo URL" required>
                     </div>
                     <div class="ClubLogo">Club Logo</div>
                     <div class="Add">
@@ -52,12 +51,45 @@
                 </form>
             </div>
         </div>
-            
 
-         <div class="footer">
-                <div class="Rectangle8" ></div>
-                    <div class="Copyright2024" >Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
+        <div class="footer">
+            <div class="Rectangle8"></div>
+            <div class="Copyright2024">Copyright © 2024 Todos los derechos reservados - CONMEBOL Copa América</div>
         </div> 
     </section>
+
+    <script>
+        document.getElementById('add-team-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const teamName = document.getElementById('team-name').value;
+            const teamLogo = document.getElementById('team-logo').value;
+
+            fetch('/teams', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: teamName,
+                    img: teamLogo,
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
+            .then(data => {
+                console.log(data);
+                window.location.href = '/teams_page'; // Redirect to the teams page
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>

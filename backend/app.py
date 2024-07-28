@@ -155,7 +155,7 @@ def add_team():
         new_team = Team(name=name, img=img)
         db.session.add(new_team)
         db.session.commit()
-        return jsonify({'team': {'id': new_team.id, 'name': new_team.name, 'age': new_team.age}}), 201
+        return jsonify({'team': {'id': new_team.id, 'name': new_team.name, 'img': new_team.img}}), 201
     except Exception as error:
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
