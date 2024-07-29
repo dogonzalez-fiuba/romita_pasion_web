@@ -150,34 +150,18 @@ body, html {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
-    bottom: 70px;
+    bottom: 90px;
 }
 
 .Rectangle21 {
-    width: 1000px; 
-    height: 700px; 
+    width: 900px; 
+    height: 600px; 
     background: #F1FAEE; 
     border-radius: 10px;
-    position: relative;
+    position: fixed;
 
 }
 
-.Rectangle24 {
-    width: 143px; 
-    height: 54px; 
-    left: 803px; 
-    top: 600px; 
-    position: relative; 
-    background: #397DED; 
-    border-radius: 10px;
-    cursor: default;
-    transition: all 400ms ease-in-out;
-
-}
-
-.Rectangle24:hover {
- transform: scale(1.1);    
-}
 
 .AddTeam {
     width: 417px; 
@@ -194,7 +178,7 @@ body, html {
 
 }
 
-.Rectangle22 {
+/* .Rectangle22 {
     width: 858px; 
     height: 60px; 
     left: 71px; 
@@ -203,7 +187,7 @@ body, html {
     background: #E7E7E7; 
     border-radius: 10px;
 
-}
+} */
 
 .Name{
     width: 175px; 
@@ -220,22 +204,43 @@ body, html {
 
 }
 
+
 .Add{
-    width: 175px; 
-    height: 55px; 
-    left: 787px; 
-    top: 606px; 
-    position: absolute; 
+    
     text-align: center; 
-    color: white; 
     font-size: 30px; 
     font-family: Baloo; 
     font-weight: 400; 
-    word-wrap: break-word;   
+    word-wrap: break-word; 
+    width: 143px; 
+    height: 54px; 
+    left: 693px; 
+    top: 500px; 
+    position: relative; 
+    background: #397DED; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;  
+}
+
+.Add:hover {
+    transform: scale(1.1);
+    background: #2968c8;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    
 }
 
 
 
+
+
+/* 
 .Rectangle23 {
     width: 858px; 
     height: 60px; 
@@ -245,6 +250,23 @@ body, html {
     background: #E7E7E7; 
     border-radius: 10px;
 
+} */
+
+input[type="text"] {
+    width: 750px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-top: 28px;
+    margin-left: 30px;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-size: 16px;
+    font-style: italic;
 }
 
 .ClubLogo {
