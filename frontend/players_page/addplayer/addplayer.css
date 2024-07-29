@@ -158,30 +158,15 @@ body, html {
 }
 
 .Rectangle21 {
-    width: 1000px; 
-    height: 1029px; 
+    width: 870px; 
+    height: 960px; 
     background: #F1FAEE; 
     border-radius: 10px;
     position: relative;
 
 }
 
-.Rectangleadd {
-    width: 143px; 
-    height: 54px; 
-    left: 799px; 
-    top: 915px; 
-    position: absolute; 
-    background: #397DED; 
-    border-radius: 10px;
-    cursor: default;
-    transition: all 400ms ease-in-out;
 
-}
-
-.Rectangleadd:hover {
- transform: scale(1.1);    
-}
 
 .AddTeam {
     width: 417px; 
@@ -198,24 +183,12 @@ body, html {
 
 }
 
-.Rectangle22 {
-    width: 858px; 
-    height: 60px; 
-    left: 71px; 
-    top: 231px; 
-    position: absolute; 
-    background: #E7E7E7; 
-    border-radius: 10px;
-
-}
-
 .Name{
     width: 175px; 
     height: 55px; 
-    left: 43px; 
+    left: 60px; 
     top: 159px; 
     position: absolute; 
-    text-align: center; 
     color: black; 
     font-size: 40px; 
     font-family: Baloo; 
@@ -224,37 +197,60 @@ body, html {
 
 }
 
+
+input[type="text"] {
+    width: 750px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-size: 16px;
+    font-style: italic;
+}
+
 .Add{
-    left: 45px; 
-    top: 10px; 
-    position: absolute; 
+    
     text-align: center; 
-    color: white; 
     font-size: 30px; 
     font-family: Baloo; 
-    font-weight: 400; word-wrap: break-word;
-}
-
-
-
-.Rectangle23 {
-    width: 858px; 
-    height: 60px; 
-    left: 71px; 
-    top: 399px; 
-    position: absolute; 
-    background: #E7E7E7; 
+    font-weight: 400; 
+    word-wrap: break-word; 
+    width: 143px; 
+    height: 54px; 
+    left: 693px; 
+    top: 850px; 
+    position: relative; 
+    background: #397DED; 
     border-radius: 10px;
-
+    cursor: pointer;
+    transition: all 400ms ease-in-out;  
 }
+
+.Add:hover {
+    transform: scale(1.1);
+    background: #2968c8;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+}
+
 
 .ClubLogo {
     width: 249px; 
     height: 55px; 
-    left: 23px; 
+    left: 60px; 
     top: 327px; 
     position: absolute; 
-    text-align: center; 
     color: black; 
     font-size: 40px; 
     font-family: Baloo; 
@@ -262,23 +258,14 @@ body, html {
     word-wrap: break-word;
 }
 
-.Rectangle25 {
-    width: 858px; 
-    height: 60px; 
-    left: 71px; 
-    top: 567px; 
-    position: absolute; 
-    background: #E7E7E7; 
-    border-radius: 10px;
-}
+
 
 .Photo {
     width: 180px; 
     height: 55px; 
-    left: 43px; 
+    left: 60px; 
     top: 495px; 
     position: absolute; 
-    text-align: center; 
     color: black; 
     font-size: 40px; 
     font-family: Baloo; 
@@ -286,24 +273,13 @@ body, html {
     word-wrap: break-word"
 }
 
-.Rectangle28 {
-    width: 858px; 
-    height: 60px; 
-    left: 71px; 
-    top: 735px; 
-    position: absolute; 
-    background: #E7E7E7; 
-    border-radius: 10px;
-
-}  
 
 .Position {
     width: 180px; 
     height: 55px; 
-    left: 61px; 
+    left: 60px; 
     top: 665px; 
     position: absolute; 
-    text-align: center; 
     color: black; 
     font-size: 40px; 
     font-family: Baloo; 
