@@ -185,11 +185,16 @@ def add_player(id):
 def remove_player(id_player):
     try:
         player = Player.query.get(id_player)
+        if player is None:
+            return jsonify({'message': 'Player not found'}), 404
         db.session.delete(player)
         db.session.commit()
-        return "player removed"
-    except: 
-        return jsonify({'message': 'Internal server error'}), 500
+        return jsonify({'message': 'Player removed successfully'}), 200
+    except Exception as e:
+        db.session.rollback()  # Rollback en caso de error
+        return jsonify({'message': 'Internal server error', 'error': str(e)}), 500
+    finally:
+        db.session.close() 
 
 
 @app.route("/teams/team/<id>", methods=['DELETE'])
@@ -240,9 +245,9 @@ def edit_player(id):
 @app.route("/teams/team/<id>", methods=['PUT'])
 def edit_team(id):
     try:
-        team = Team.query.get(id)
+        team = db.session.get(Team, id)
         if not team:
-            return jsonify({'message': 'Team not fund'}), 404
+            return jsonify({'message': 'Team not found'}), 404
 
         data = request.json
         name = data.get("name")
@@ -252,11 +257,15 @@ def edit_team(id):
         team.name = name
         team.img = img
         db.session.commit()   
-        return jsonify({'player': {'id': team.id, 'name': team.name, 'position': team.position, 'img': team.img, 'team_id': team.team_id }}), 200  
+        return jsonify({'team': {'id': team.id, 'name': team.name, 'img': team.img}}), 200  
     except Exception as error:
         print('Error', error)
+        db.session.rollback()  # Rollback en caso de error
         return jsonify({'message': 'Internal server error'}), 500
+    finally:
+        db.session.close() 
 
+        
 if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():

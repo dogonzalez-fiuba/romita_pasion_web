@@ -115,14 +115,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.message === 'Internal server error') {
-                    alert('Error deleting player');
-                } else {
-                    alert('Player deleted successfully');
-                    window.location.href = `/players_page/${teamId}`;
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        if (data.message === 'Player removed successfully') {
+            alert('Player deleted successfully');
+            window.location.href = `/players_page/${teamId}`;
+        } else {
+            alert(`Error deleting player: ${data.message}`);
+        }
+    })
+    .catch(error => console.error('Error:', error));
         }
     </script>
 </body>
