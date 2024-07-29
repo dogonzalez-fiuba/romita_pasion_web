@@ -105,6 +105,11 @@
         }
 
         function deletePlayer(playerId, teamId) {
+            const confirmation = confirm("Are you sure to eliminate this player?")
+            if(!confirmation){
+                return;
+            } 
+
             fetch(`/players/${playerId}`, {
                 method: 'DELETE'
             })
