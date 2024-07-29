@@ -12,7 +12,7 @@ class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True) 
     name = db.Column(db.String(50), nullable = False)
     img = db.Column(db.String(255), nullable = False)
-    players = db.relationship("Player")
+    players = db.relationship("Player", cascade="all, delete-orphan", backref="team")
 
 class Player(db.Model):
     __tablename__ = 'players'
@@ -21,4 +21,4 @@ class Player(db.Model):
     number = db.Column(db.Integer, nullable=False)
     position = db.Column(db.String(50), nullable=False)
     img = db.Column(db.String(255), nullable = False)
-    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.id', ondelete="CASCADE"))
